@@ -21,8 +21,6 @@ def main():
     print("\nEnter \"0\" to quit or \"1\" to start the game.")
     print("*" * 40)
 
-    # player_choice = int(input("Your Choice: "))
-
     try:
         player_choice = int(input("Your Choice: "))
 
