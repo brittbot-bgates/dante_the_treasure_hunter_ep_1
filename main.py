@@ -7,6 +7,7 @@ Episode #1: The Famed Loot of The Maledictus Castle
 """
 from modules.sleep_print import sleep_print
 from modules.clear_screen import clear_screen
+from modules.start_game import start_game
 
 
 def main():
@@ -29,7 +30,7 @@ def main():
             print("\nWe'll see you next time!")
             exit()
         elif player_choice == 1:
-            print("The game start function goes here.")
+            start_game()
         else:
             print(
                 "\n!! Invalid input. Please enter either \"0\" or \"1\" as your choice. Restarting the game. !!")
