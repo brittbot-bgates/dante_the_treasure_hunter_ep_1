@@ -10,19 +10,19 @@ from modules.clear_screen import clear_screen
 from modules.start_game import start_game
 
 
-def main():
+def main() -> None:
     """
     The menu for the game.
     :return: A new game or quits the game depending on the player's choice.
     """
-    print("*" * 40)
+    print("*" * 60)
     print("\nDante, The Treasure Hunter")
     print("\n\x1B[3mEpisode #1: The Famed Loot of The Maledictus Mansion\x1B[0m")
-    print("\nEnter \"0\" to quit or \"1\" to start the game.")
-    print("*" * 40)
+    print("\nEnter \"0\" to quit or \"1\" to start the game.\n")
+    print("*" * 60)
 
     try:
-        player_choice = int(input("Your Choice: "))
+        player_choice = int(input("\nYour Choice: "))
 
         if player_choice == 0:
             print("\nWe'll see you next time!")

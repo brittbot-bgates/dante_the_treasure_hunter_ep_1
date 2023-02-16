@@ -3,8 +3,8 @@ class Player:
     def __init__(self):
         self.name = "Dante"
         self.hp = 100
-        self.weapon = "sword"
-        self.armor = "basic armor"
+        self.weapon = "Sword"
+        self.armor = "Basic Armor"
         self.backpack = []
         self.weapon_dmg = 5
         self.armor_rating = 3
