@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 from modules.sleep_print import sleep_print
-from modules.player_class import Player
+
+from modules.first_move_decision import first_move_decision
 
 
-def start_game():
+def start_game() -> None:
+    """
+    Starts the game and provides the story's introduction.
+    :return: None
+    """
     print("\nSetting up the scene leading up to The Maledictus Mansion...\n")
     sleep_print()
 
@@ -12,7 +17,4 @@ def start_game():
             print(line)
             sleep_print()
 
-# TODO: create a text hud showing Dante's health and treasure in the backpack
-# TODO: create a module for the "first move decision" and add that here and its function call.
-
-    dante = Player()
+    first_move_decision()
