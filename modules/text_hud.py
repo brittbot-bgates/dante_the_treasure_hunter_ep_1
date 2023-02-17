@@ -9,6 +9,6 @@ def text_hud():
     Shows Dante's current vitals on the screen to the player. 
     return: The current status of Dante's `hp`, `weapon`, `weapon_dmg`, `armor`, `armor_rating`, and treasure in his `backpack`.
     """
-    print("*" * 50)
-    print(f"\nDante's HP: {dante.hp}\nCurrent Weapon: {dante.weapon} | Dmg: {dante.weapon_dmg}\nCurrent Armor: {dante.armor} | Rating: -{dante.armor_rating} Dmg\nDante's Loot: {dante.backpack}\n")
-    print("*" * 50)
+    print("-" * 50)
+    print(f"Dante's HP: {dante.hp}\nCurrent Weapon: {dante.weapon} | Dmg: {dante.weapon_dmg}\nCurrent Armor: {dante.armor} | Rating: -{dante.armor_rating} Dmg\nDante's Loot: {dante.backpack}")
+    print("-" * 50)
