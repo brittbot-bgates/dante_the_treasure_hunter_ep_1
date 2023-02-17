@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from modules.sleep_print import sleep_print
-
 from modules.first_move_decision import first_move_decision
 
 

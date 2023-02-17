@@ -4,6 +4,7 @@ from modules.clear_screen import clear_screen
 from modules.text_hud import text_hud
 from modules.loot import generate_basic_loot
 from modules.player_class import Player
+from modules.enemies import *
 
 
 dante = Player()
@@ -27,17 +28,40 @@ def first_move_decision():
             print("\nQuitting the game as requested.")
             exit()
         elif move_choice == 1:
-            pass
+            print("")
+
+            with open("python/dante_the_treasure_hunter/script/first_move_decision_study.txt", "r") as choice_1:
+                for line in choice_1.readlines():
+                    print(line)
+                    sleep_print()
+
+        # TODO: Add the enemy function here.
+
         elif move_choice == 2:
-            pass
-        elif move_choice == 3:            
-            print("\nYou open the closet door and a musty smell hits you. You wave it away and turn on the headlamp attached to your head.")
-            sleep_print()
-            print("\nThe light illuminates the closet and you see at a small metal box sitting on the floor.")
-            sleep_print()
-            print("\nYou open it and find...\n")
-            sleep_print()
+            print("")
+
+            with open("python/dante_the_treasure_hunter/script/first_move_decision_great_room.txt", "r") as choice_2:
+                for line in choice_2.readlines():
+                    print(line)
+                    sleep_print()
+
+        # TODO: Add the enemy function here.
+        
+        elif move_choice == 3:
+            print("")
+
+            with open("python/dante_the_treasure_hunter/script/first_move_decision_closet.txt", "r") as choice_3:
+                for line in choice_3.readlines():
+                    print(line)
+                    sleep_print()
+
             generate_basic_loot()
+
+            sleep_print()
+            print("\n~ Dante stands up and closes the closet door.\n")
+            sleep_print()
+
+            # TODO: Add second move choice function here
         else:
             print(
                 "\n!! Invalid choice. Please enter either \"1\" or \"2\" or \"3\" as your choice. !!")

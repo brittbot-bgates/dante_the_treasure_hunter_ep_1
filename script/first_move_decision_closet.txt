@@ -1,0 +1,7 @@
+~ Dante opens the closet door and a musty smell hits him along with a cloud of dust.
+~ The Treasure Hunter waves it away as he coughs. Then he turns on the headlamp attached to his head via a headband.
+~ The light illuminates the closet and Dante sees the closet is mostly empty except for a small metal lockbox sitting on the floor.
+"Ah, here we go! Let's see if there's anything valuable in the box."
+~ Dante kneels down and picks up the metal box to inspect it.
+"It's not locked. Let's see what's inside." 
+~ He opens it to find...
