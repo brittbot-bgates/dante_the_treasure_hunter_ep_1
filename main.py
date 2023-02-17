@@ -31,12 +31,12 @@ def main() -> None:
             start_game()
         else:
             print(
-                "\n!! Invalid input. Please enter either \"0\" or \"1\" as your choice. Restarting the game. !!")
+                "\n!! Invalid choice. Please enter either \"0\" or \"1\" as your choice. Restarting the game. !!")
             sleep_print()
             clear_screen()
             main()
     except ValueError:
-        print("\n!! Invalid input. Please enter either \"0\" or \"1\" as your choice. Restarting the game. !!")
+        print("\n!! Invalid choice. Please enter either \"0\" or \"1\" as your choice. Restarting the game. !!")
         sleep_print()
         clear_screen()
         main()
