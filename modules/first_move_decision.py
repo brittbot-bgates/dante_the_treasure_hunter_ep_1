@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 from modules.sleep_print import sleep_print
 from modules.clear_screen import clear_screen
-from modules.text_hud import text_hud
 from modules.loot import generate_basic_loot
-from modules.player_class import Player
+from modules.player_class import Player 
 from modules.enemies import *
 
 
@@ -15,7 +14,7 @@ def first_move_decision():
     The player's first move in the game.
     return: If the player goes into the `Study`, `Great Room`, or searches the `Closet`.
     """
-    text_hud()
+    Player.player_hud(dante)
 
     # TODO: create the first move options for the player.
     print("Current Location: Front Door.\n\nTo your left is a Study, straight ahead is a Great Room, and to your right is a closet. What do you do?\n")
