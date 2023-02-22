@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+import random
+
+
 class Player:
     def __init__(self):
         self.name = "Dante"
@@ -15,8 +18,9 @@ class Player:
         return: The current status of Dante's `hp`, `weapon`, `weapon_dmg`, `armor`, `armor_rating`, and treasure in his `backpack`.
         """
         print("-" * 50)
-        print(f"Dante's HP: {self.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}\nCurrent Armor: {self.armor} | Rating: -{self.armor_rating} Dmg\nDante's Loot: {self.backpack}")
+        print(f"Dante's HP: {self.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}\nCurrent Armor: {self.armor} | Rating: {self.armor_rating} Dmg\nDante's Loot: {self.backpack}")
         print("-" * 50)
+        
 
     # The method to attack the enemy goes below
     """
@@ -40,3 +44,12 @@ class Player:
 
     def enemy_damage_taken(self):
         pass
+
+    def take_damage(self, damage):
+        remaining_hp = self.hp - damage
+        if remaining_hp >= 0:
+            self.hp = remaining_hp
+            print(f"{self} took {damage} points of damage and have {self.hp} left")
+
+
+dante = Player()

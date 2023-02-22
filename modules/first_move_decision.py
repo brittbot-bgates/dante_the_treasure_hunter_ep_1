@@ -2,11 +2,8 @@
 from modules.sleep_print import sleep_print
 from modules.clear_screen import clear_screen
 from modules.loot import generate_basic_loot
-from modules.player_class import Player 
-from modules.enemies import *
-
-
-dante = Player()
+from modules.player_class import *
+from modules.enemy_class import *
 
 
 def first_move_decision():
@@ -35,6 +32,9 @@ def first_move_decision():
                     sleep_print()
 
         # TODO: Add the enemy function here.
+            print(bat.name + "...and it's ready to attack!\n")
+            sleep_print()
+            Enemy.enemy_hud(bat)
 
         elif move_choice == 2:
             print("")
@@ -43,9 +43,13 @@ def first_move_decision():
                 for line in choice_2.readlines():
                     print(line)
                     sleep_print()
+            
+            print(rat.name + "...and it's ready to attack!\n")
+            sleep_print()           
+            Enemy.enemy_hud(rat)
 
         # TODO: Add the enemy function here.
-        
+
         elif move_choice == 3:
             print("")
 
