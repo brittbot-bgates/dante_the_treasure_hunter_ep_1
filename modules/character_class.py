@@ -17,10 +17,11 @@ class Dante:
         return: The current status of Dante's `hp`, `weapon`, `weapon_dmg`, and treasure in his `backpack`.
         """
         print("-" * 50)
-        print(f"Dante's HP: {dante.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}\nDante's Loot: {self.backpack}")
+        print(
+            f"Dante's HP: {dante.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}\nDante's Loot: {self.backpack}")
         print("-" * 50)
 
-    def sword_attack(self):        
+    def sword_attack_bat(self):
         while bat.hp > 0:
 
             num = random.randint(0, 2)
@@ -46,6 +47,32 @@ class Dante:
                 sleep_print()
                 bat.multiple_bites()
 
+    def sword_attack_rat(self):
+        while rat.hp > 0:
+
+            num = random.randint(0, 2)
+
+            if num == 0:
+                print(
+                    f"\n~ {self.name} slices the {rat.name} with his {self.weapon}!")
+                sleep_print()
+                remaining_rat_hp = rat.hp - dante.weapon_dmg
+                rat.hp = remaining_rat_hp
+
+                if rat.hp <= 0:
+                    print(
+                        f"\n!! {rat.name} falls dead, its body sliced in half. !!")
+                    print("\n~ Dante's vitals after the fight:\n")
+                    Dante.player_hud(dante)
+                    break
+                else:
+                    rat.furious_nibbling()
+            else:
+                print(
+                    f"\n~ {self.name} swings his {self.weapon} toward the {rat.name} but the {rat.name} dodges the attack.")
+                sleep_print()
+                rat.furious_nibbling()
+
 
 class Enemy:
     def __init__(self, name, hp, weapon, weapon_dmg):
@@ -60,7 +87,8 @@ class Enemy:
         return: The current status of enemy's `hp`, `weapon`, `weapon_dmg`, and `armor_rating`.
         """
         print("-" * 50)
-        print(f"{self.name}'s HP: {self.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}")
+        print(
+            f"{self.name}'s HP: {self.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}")
         print("-" * 50)
 
 
@@ -80,18 +108,18 @@ class Bat(Enemy):
                 sleep_print()
                 remaining_player_hp = dante.hp - bat.weapon_dmg
                 dante.hp = remaining_player_hp
-                
+
                 if dante.hp <= 0:
                     print(
                         f"\n!! {dante.name} succumbs to the {bat.weapon} of the {bat.name} and collaspes onto the floor dead.")
                     break
                 else:
-                    dante.sword_attack()
+                    dante.sword_attack_bat()
             else:
                 print(
                     f"\n~ The {bat.name} swoops down to bite with {bat.weapon} but {dante.name} dodges the attack.")
                 sleep_print()
-                dante.sword_attack()
+                dante.sword_attack_bat()
 
 
 class Rat(Enemy):
@@ -100,7 +128,28 @@ class Rat(Enemy):
                          weapon="Furious Nibbling", weapon_dmg=3)
 
     def furious_nibbling(self):
-        print(f"The {self.name} nibbled you!")
+        while rat.hp > 0:
+
+            num = random.randint(0, 2)
+
+            if num == 0:
+                print(
+                    f"\n~ The {rat.name} jumps toward {dante.name} and uses its teeth for {rat.weapon}.")
+                sleep_print()
+                remaining_player_hp = dante.hp - rat.weapon_dmg
+                dante.hp = remaining_player_hp
+
+                if dante.hp <= 0:
+                    print(
+                        f"\n!! {dante.name} succumbs to the {rat.weapon} of the {rat.name} and collaspes onto the floor dead.")
+                    break
+                else:
+                    dante.sword_attack_rat()
+            else:
+                print(
+                    f"\n~ The {rat.name} jumps to bite with {rat.weapon} but {dante.name} dodges the attack.")
+                sleep_print()
+                dante.sword_attack_rat()
 
 
 class Spider(Enemy):

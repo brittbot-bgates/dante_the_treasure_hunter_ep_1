@@ -43,7 +43,7 @@ def first_move_decision():
             clear_screen()
             bat.enemy_hud()
             sleep_print()
-            dante.sword_attack()
+            dante.sword_attack_bat()
             sleep_print()
 
         elif move_choice == 2:
@@ -56,9 +56,12 @@ def first_move_decision():
 
             print("~ " + rat.name + "...and it's ready to attack!\n")
             sleep_print()
+            print("~ Dante's unsheathes his sword and prepares to fight!")
+            clear_screen()
             rat.enemy_hud()
-
-        # TODO: Add the enemy function here.
+            sleep_print()
+            dante.sword_attack_rat()
+            sleep_print()
 
         elif move_choice == 3:
             print("")
