@@ -2,8 +2,15 @@
 from modules.sleep_print import sleep_print
 from modules.clear_screen import clear_screen
 from modules.loot import generate_basic_loot
-from modules.player_class import *
-from modules.enemy_class import *
+from modules.character_class import Dante, Bat, Rat, Spider, Guard, Guard_Captain, Mansion_Owner
+
+dante = Dante()
+bat = Bat()
+rat = Rat()
+spider = Spider()
+guard = Guard()
+guard_captain = Guard_Captain()
+mansion_owner = Mansion_Owner()
 
 
 def first_move_decision():
@@ -11,9 +18,8 @@ def first_move_decision():
     The player's first move in the game.
     return: If the player goes into the `Study`, `Great Room`, or searches the `Closet`.
     """
-    Player.player_hud(dante)
+    Dante.player_hud(dante)
 
-    # TODO: create the first move options for the player.
     print("Current Location: Front Door.\n\nTo your left is a Study, straight ahead is a Great Room, and to your right is a closet. What do you do?\n")
 
     try:
@@ -31,10 +37,14 @@ def first_move_decision():
                     print(line)
                     sleep_print()
 
-        # TODO: Add the enemy function here.
-            print(bat.name + "...and it's ready to attack!\n")
+            print("~ " + bat.name + "...and it's ready to attack!\n")
             sleep_print()
-            Enemy.enemy_hud(bat)
+            print("~ Dante's unsheathes his sword and prepares to fight!")
+            clear_screen()
+            bat.enemy_hud()
+            sleep_print()
+            dante.sword_attack()
+            sleep_print()
 
         elif move_choice == 2:
             print("")
@@ -43,10 +53,10 @@ def first_move_decision():
                 for line in choice_2.readlines():
                     print(line)
                     sleep_print()
-            
-            print(rat.name + "...and it's ready to attack!\n")
-            sleep_print()           
-            Enemy.enemy_hud(rat)
+
+            print("~ " + rat.name + "...and it's ready to attack!\n")
+            sleep_print()
+            rat.enemy_hud()
 
         # TODO: Add the enemy function here.
 

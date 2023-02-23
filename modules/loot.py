@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import random
-from modules.player_class import Player
+from modules.character_class import Dante
 
 basic_loot = [
     "Small HP Tonic",
@@ -22,7 +22,7 @@ premium_loot = [
     "A full jewelry box",
 ]
 
-dante = Player()
+dante = Dante()
 
 
 def generate_basic_loot():
