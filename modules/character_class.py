@@ -8,18 +8,16 @@ class Dante:
         self.name = "Dante"
         self.hp = 100
         self.weapon = "Sword"
-        self.armor = "Basic Armor"
         self.backpack = []
         self.weapon_dmg = 5
-        self.armor_rating = 3
 
     def player_hud(self):
         """
         Shows Dante's current vitals on the screen to the player. 
-        return: The current status of Dante's `hp`, `weapon`, `weapon_dmg`, `armor`, `armor_rating`, and treasure in his `backpack`.
+        return: The current status of Dante's `hp`, `weapon`, `weapon_dmg`, and treasure in his `backpack`.
         """
         print("-" * 50)
-        print(f"Dante's HP: {self.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}\nCurrent Armor: {self.armor} | Rating: {self.armor_rating} Dmg\nDante's Loot: {self.backpack}")
+        print(f"Dante's HP: {self.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}\nDante's Loot: {self.backpack}")
         print("-" * 50)
 
     def sword_attack(self):
@@ -48,12 +46,11 @@ class Dante:
 
 
 class Enemy:
-    def __init__(self, name, hp, weapon, weapon_dmg, armor_rating):
+    def __init__(self, name, hp, weapon, weapon_dmg):
         self.name = name
         self.hp = hp
         self.weapon = weapon
         self.weapon_dmg = weapon_dmg
-        self.armor_rating = armor_rating
 
     def enemy_hud(self):
         """
@@ -61,14 +58,14 @@ class Enemy:
         return: The current status of enemy's `hp`, `weapon`, `weapon_dmg`, and `armor_rating`.
         """
         print("-" * 50)
-        print(f"{self.name}'s HP: {self.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}\nArmor Rating: {self.armor_rating} Dmg")
+        print(f"{self.name}'s HP: {self.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}")
         print("-" * 50)
 
 
 class Bat(Enemy):
     def __init__(self):
         super().__init__(name="Large Bat", hp=5,
-                         weapon="Multiple Bites", weapon_dmg=2, armor_rating=0)
+                         weapon="Multiple Bites", weapon_dmg=2)
 
     def multiple_bites(self):
         while bat.hp > 0:
@@ -98,7 +95,7 @@ class Bat(Enemy):
 class Rat(Enemy):
     def __init__(self):
         super().__init__(name="Massive Rat", hp=10,
-                         weapon="Furious Nibbling", weapon_dmg=3, armor_rating=0)
+                         weapon="Furious Nibbling", weapon_dmg=3)
 
     def furious_nibbling(self):
         print(f"The {self.name} nibbled you!")
@@ -107,7 +104,7 @@ class Rat(Enemy):
 class Spider(Enemy):
     def __init__(self):
         super().__init__(name="Enormous Spider", hp=5,
-                         weapon="Poison Fang", weapon_dmg=2, armor_rating=0)
+                         weapon="Poison Fang", weapon_dmg=2)
 
     def pison_fang(self):
         print(f"The {self.name} sank its fangs into you!")
@@ -116,7 +113,7 @@ class Spider(Enemy):
 class Guard(Enemy):
     def __init__(self):
         super().__init__(name="Cursed Guard", hp=20,
-                         weapon="A Good Pummeling", weapon_dmg=4, armor_rating=3)
+                         weapon="A Good Pummeling", weapon_dmg=4)
 
     def a_good_pummeling(self):
         print(f"The {self.name} hits you several times!")
@@ -125,7 +122,7 @@ class Guard(Enemy):
 class Guard_Captain(Enemy):
     def __init__(self):
         super().__init__(name="Cursed Guard Captain", hp=30,
-                         weapon="A Baton Strike", weapon_dmg=5, armor_rating=3)
+                         weapon="A Baton Strike", weapon_dmg=5)
 
     def a_knife_strike(self):
         print(f"The {self.name} hits you with a baton!")
@@ -134,7 +131,7 @@ class Guard_Captain(Enemy):
 class Mansion_Owner(Enemy):
     def __init__(self):
         super().__init__(name="Cursed Mansion Owner", hp=50,
-                         weapon="A Sword Strike", weapon_dmg=7, armor_rating=5)
+                         weapon="A Sword Strike", weapon_dmg=7)
 
     def an_axe_strike(self):
         print(f"The {self.name} slashes you with a sword!")
