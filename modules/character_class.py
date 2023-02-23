@@ -17,11 +17,11 @@ class Dante:
         return: The current status of Dante's `hp`, `weapon`, `weapon_dmg`, and treasure in his `backpack`.
         """
         print("-" * 50)
-        print(f"Dante's HP: {self.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}\nDante's Loot: {self.backpack}")
+        print(f"Dante's HP: {dante.hp}\nCurrent Weapon: {self.weapon} | Dmg: {self.weapon_dmg}\nDante's Loot: {self.backpack}")
         print("-" * 50)
 
-    def sword_attack(self):
-        while dante.hp > 0:
+    def sword_attack(self):        
+        while bat.hp > 0:
 
             num = random.randint(0, 2)
 
@@ -35,6 +35,8 @@ class Dante:
                 if bat.hp <= 0:
                     print(
                         f"\n!! {bat.name} drops onto the floor in two pieces. !!")
+                    print("\n~ Dante's vitals after the fight:\n")
+                    Dante.player_hud(dante)
                     break
                 else:
                     bat.multiple_bites()
@@ -78,7 +80,7 @@ class Bat(Enemy):
                 sleep_print()
                 remaining_player_hp = dante.hp - bat.weapon_dmg
                 dante.hp = remaining_player_hp
-
+                
                 if dante.hp <= 0:
                     print(
                         f"\n!! {dante.name} succumbs to the {bat.weapon} of the {bat.name} and collaspes onto the floor dead.")
