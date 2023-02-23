@@ -3,7 +3,6 @@ import random
 from modules.character_class import Dante
 
 basic_loot = [
-    "Small HP Tonic",
     "A few gold coins",
     "A rare coin",
     "A gold ring",
@@ -14,9 +13,7 @@ basic_loot = [
 ]
 
 premium_loot = [
-    "Large HP Tonic",
     "Falchion Sword",
-    "Premium Armor",
     "Gold bar",
     "A pouch of precious gemstones",
     "A full jewelry box",
