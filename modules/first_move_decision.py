@@ -30,7 +30,7 @@ def first_move_decision():
             print("\nQuitting the game as requested.")
             exit()
         elif move_choice == 1:
-            print("")
+            print()
 
             with open("python/dante_the_treasure_hunter/script/first_move_decision_study.txt", "r") as choice_1:
                 for line in choice_1.readlines():
@@ -45,6 +45,17 @@ def first_move_decision():
             sleep_print()
             dante.sword_attack_bat()
             sleep_print()
+            print()
+
+            with open("python/dante_the_treasure_hunter/script/first_move_decision_study_loot.txt", "r") as choice_1_loot:
+                for line in choice_1_loot.readlines():
+                    print(line)
+                    sleep_print()
+            
+            generate_basic_loot()
+            sleep_print()
+
+            # Add the second_move_decision logic here
 
         elif move_choice == 2:
             print("")
