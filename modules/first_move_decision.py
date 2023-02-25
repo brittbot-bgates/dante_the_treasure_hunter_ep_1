@@ -22,73 +22,116 @@ def first_move_decision():
 
     print("Current Location: Front Door.\n\nTo your left is a Study, straight ahead is a Great Room, and to your right is a closet. What do you do?\n")
 
+    def move_choice_1_function():
+        print()
+
+        with open("python/dante_the_treasure_hunter/script/first_move_decision_study.txt", "r") as choice_1:
+            for line in choice_1.readlines():
+                print(line)
+                sleep_print()
+
+        print("~ " + bat.name + "...and it's ready to attack!\n")
+        sleep_print()
+        print("~ Dante's unsheathes his sword and prepares to fight!")
+        clear_screen()
+        bat.enemy_hud()
+        sleep_print()
+        dante.sword_attack_bat()
+        sleep_print()
+        print()
+
+        with open("python/dante_the_treasure_hunter/script/first_move_decision_study_loot.txt", "r") as choice_1_loot:
+            for line in choice_1_loot.readlines():
+                print(line)
+                sleep_print()
+
+        generate_basic_loot()
+        sleep_print()
+
+    def move_choice_2_function():
+        print("")
+
+        with open("python/dante_the_treasure_hunter/script/first_move_decision_great_room.txt", "r") as choice_2:
+            for line in choice_2.readlines():
+                print(line)
+                sleep_print()
+
+        print("~ " + rat.name + "...and it's ready to attack!\n")
+        sleep_print()
+        print("~ Dante's unsheathes his sword and prepares to fight!")
+        clear_screen()
+        rat.enemy_hud()
+        sleep_print()
+        dante.sword_attack_rat()
+        sleep_print()
+
+        # TODO: Add the script for the great room loot and the generate basic loot function
+
+    def move_choice_3_function():
+        print("")
+
+        with open("python/dante_the_treasure_hunter/script/first_move_decision_closet.txt", "r") as choice_3:
+            for line in choice_3.readlines():
+                print(line)
+                sleep_print()
+
+        generate_basic_loot()
+
+        sleep_print()
+        print("\n~ Dante stands up and closes the closet door.\n")
+        sleep_print()
+
+
     try:
-        move_choice = int(input(
+        move_choice_1 = int(input(
             "1) Go into the Study\n2) Walk into the Great Room\n3) Open the closet\n\nYour Choice: "))
 
-        if move_choice == 0:
+        if move_choice_1 == 0:
             print("\nQuitting the game as requested.")
             exit()
-        elif move_choice == 1:
-            print()
+        elif move_choice_1 == 1:
+            move_choice_1_function()
 
-            with open("python/dante_the_treasure_hunter/script/first_move_decision_study.txt", "r") as choice_1:
-                for line in choice_1.readlines():
-                    print(line)
+            print(
+                "\nDante leaves the Study. He can walk into the Great Room or check the closet.\n")
+            move_choice_2 = int(input(
+                "1) Walk into the Great Room\n2) Open the closet\n\nYour Choice: "))
+
+            if move_choice_2 == 1:
+                move_choice_2_function()
+            elif move_choice_2 == 2:
+                move_choice_3_function()
+            else:
+                while move_choice_2 > 2:
+                    print(
+                        "\n!! Invalid choice. Please enter either \"1\" or \"2\"  as your choice. !!")
                     sleep_print()
+                    print(
+                        "Dante leaves the Study. He can walk into the Great Room or check the closet.\n")
+                    move_choice_2 = int(input(
+                        "1) Walk into the Great Room\n2) Open the closet\n\nYour Choice: "))
+                    if move_choice_2 == 1:
+                        move_choice_2_function()
+                    elif move_choice_2 == 2:
+                        move_choice_3_function()
 
-            print("~ " + bat.name + "...and it's ready to attack!\n")
-            sleep_print()
-            print("~ Dante's unsheathes his sword and prepares to fight!")
-            clear_screen()
-            bat.enemy_hud()
-            sleep_print()
-            dante.sword_attack_bat()
-            sleep_print()
-            print()
+        elif move_choice_1 == 2:
+            move_choice_2_function()
 
-            with open("python/dante_the_treasure_hunter/script/first_move_decision_study_loot.txt", "r") as choice_1_loot:
-                for line in choice_1_loot.readlines():
-                    print(line)
-                    sleep_print()
-            
-            generate_basic_loot()
-            sleep_print()
+            # Add the second_move_decision function here.
 
-            # Add the second_move_decision logic here
+            print(
+                "Dante leaves the Great Room. He can walk into the Study or check the closet.\n")
+            move_choice_3 = int(input(
+                "1) Go into the Study\n2) Open the closet\n\nYour Choice: "))
 
-        elif move_choice == 2:
-            print("")
+            if move_choice_3 == 1:
+                move_choice_1_function()
+            elif move_choice_3 == 2:
+                move_choice_3_function()
 
-            with open("python/dante_the_treasure_hunter/script/first_move_decision_great_room.txt", "r") as choice_2:
-                for line in choice_2.readlines():
-                    print(line)
-                    sleep_print()
-
-            print("~ " + rat.name + "...and it's ready to attack!\n")
-            sleep_print()
-            print("~ Dante's unsheathes his sword and prepares to fight!")
-            clear_screen()
-            rat.enemy_hud()
-            sleep_print()
-            dante.sword_attack_rat()
-            sleep_print()
-
-        elif move_choice == 3:
-            print("")
-
-            with open("python/dante_the_treasure_hunter/script/first_move_decision_closet.txt", "r") as choice_3:
-                for line in choice_3.readlines():
-                    print(line)
-                    sleep_print()
-
-            generate_basic_loot()
-
-            sleep_print()
-            print("\n~ Dante stands up and closes the closet door.\n")
-            sleep_print()
-
-            # TODO: Add second move choice function here
+        elif move_choice_1 == 3:
+            move_choice_3_function()            
         else:
             print(
                 "\n!! Invalid choice. Please enter either \"1\" or \"2\" or \"3\" as your choice. !!")
