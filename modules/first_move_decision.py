@@ -3,6 +3,7 @@ from modules.sleep_print import sleep_print
 from modules.clear_screen import clear_screen
 from modules.loot import generate_basic_loot
 from modules.character_class import Dante, Bat, Rat, Spider, Guard, Guard_Captain, Mansion_Owner
+from modules.second_move_decision import second_move_decision
 
 dante = Dante()
 bat = Bat()
@@ -17,10 +18,7 @@ def first_move_decision():
     """
     The player's first move in the game.
     return: If the player goes into the `Study`, `Great Room`, or searches the `Closet`.
-    """
-    Dante.player_hud(dante)
-
-    print("Current Location: Front Door.\n\nTo your left is a Study, straight ahead is a Great Room, and to your right is a closet. What do you do?\n")
+    """ 
 
     def move_choice_1_function():
         print()
@@ -64,8 +62,15 @@ def first_move_decision():
         sleep_print()
         dante.sword_attack_rat()
         sleep_print()
+        print()
 
-        # TODO: Add the script for the great room loot and the generate basic loot function
+        with open("python/dante_the_treasure_hunter/script/first_move_decision_great_room_loot.txt", "r") as choice_1_loot:
+            for line in choice_1_loot.readlines():
+                print(line)
+                sleep_print()
+
+        generate_basic_loot()
+        sleep_print()
 
     def move_choice_3_function():
         print("")
@@ -81,6 +86,9 @@ def first_move_decision():
         print("\n~ Dante stands up and closes the closet door.\n")
         sleep_print()
 
+    Dante.player_hud(dante)
+
+    print("Current Location: Front Door.\n\nTo your left is a Study, straight ahead is a Great Room, and to your right is a closet. What do you do?\n")
 
     try:
         move_choice_1 = int(input(
@@ -93,7 +101,7 @@ def first_move_decision():
             move_choice_1_function()
 
             print(
-                "\nDante leaves the Study. He can walk into the Great Room or check the closet.\n")
+                "\n~ Dante leaves the Study. He can walk into the Great Room or check the closet.\n")
             move_choice_2 = int(input(
                 "1) Walk into the Great Room\n2) Open the closet\n\nYour Choice: "))
 
@@ -102,36 +110,46 @@ def first_move_decision():
             elif move_choice_2 == 2:
                 move_choice_3_function()
             else:
-                while move_choice_2 > 2:
+                while move_choice_2 != 1 or move_choice_2 != 2:
                     print(
                         "\n!! Invalid choice. Please enter either \"1\" or \"2\"  as your choice. !!")
                     sleep_print()
                     print(
-                        "Dante leaves the Study. He can walk into the Great Room or check the closet.\n")
+                        "~ Dante leaves the Study. He can walk into the Great Room or check the closet.\n")
                     move_choice_2 = int(input(
                         "1) Walk into the Great Room\n2) Open the closet\n\nYour Choice: "))
                     if move_choice_2 == 1:
                         move_choice_2_function()
                     elif move_choice_2 == 2:
                         move_choice_3_function()
-
         elif move_choice_1 == 2:
             move_choice_2_function()
-
-            # Add the second_move_decision function here.
+            second_move_decision()
+        elif move_choice_1 == 3:
+            move_choice_3_function()
 
             print(
-                "Dante leaves the Great Room. He can walk into the Study or check the closet.\n")
-            move_choice_3 = int(input(
-                "1) Go into the Study\n2) Open the closet\n\nYour Choice: "))
+                "Dante can walk into the Study or walk into the Great Room.\n")
+            move_choice_4 = int(input(
+                "1) Go into the Study\n2) Walk into the Great Room\n\nYour Choice: "))
 
-            if move_choice_3 == 1:
+            if move_choice_4 == 1:
                 move_choice_1_function()
-            elif move_choice_3 == 2:
-                move_choice_3_function()
-
-        elif move_choice_1 == 3:
-            move_choice_3_function()            
+            elif move_choice_4 == 2:
+                move_choice_2_function()
+            else:
+                while move_choice_4 != 1 or move_choice_4 != 2:
+                    print(
+                        "\n!! Invalid choice. Please enter either \"1\" or \"2\"  as your choice. !!")
+                    sleep_print()
+                    print(
+                        "Dante closes the closet. He can walk into the Study or walk into the Great Room.\n")
+                    move_choice_4 = int(input(
+                        "1) Go into the Study\n2) Walk into the Great Room\n\nYour Choice: "))
+                    if move_choice_4 == 1:
+                        move_choice_1_function()
+                    elif move_choice_4 == 2:
+                        move_choice_2_function()
         else:
             print(
                 "\n!! Invalid choice. Please enter either \"1\" or \"2\" or \"3\" as your choice. !!")
