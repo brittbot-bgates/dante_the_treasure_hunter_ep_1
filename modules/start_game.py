@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 from modules.sleep_print import sleep_print
-from modules.first_move_decision import first_move_decision
+from modules.room_1_foyer import starting_room
 
 
-def start_game() -> None:
+def start_game():
     """
     Starts the game and provides the story's introduction.
     :return: None
@@ -16,4 +16,4 @@ def start_game() -> None:
             print(line)
             sleep_print()
 
-    first_move_decision()
+    starting_room()

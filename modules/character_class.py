@@ -73,6 +73,32 @@ class Dante:
                 sleep_print()
                 rat.furious_nibbling()
 
+    def sword_attack_spider(self):
+        while spider.hp > 0:
+
+            num = random.randint(0, 2)
+
+            if num == 0:
+                print(
+                    f"\n~ {self.name} slices the {spider.name} with his {self.weapon}!")
+                sleep_print()
+                remaining_spider_hp = spider.hp - dante.weapon_dmg
+                spider.hp = remaining_spider_hp
+
+                if spider.hp <= 0:
+                    print(
+                        f"\n!! {spider.name} keels over, three of its legs hacked off. !!")
+                    print("\n~ Dante's vitals after the fight:\n")
+                    Dante.player_hud(dante)
+                    break
+                else:
+                    spider.poison_fang()
+            else:
+                print(
+                    f"\n~ {self.name} swings his {self.weapon} toward the {spider.name} but the {spider.name} dodges the attack.")
+                sleep_print()
+                spider.poison_fang()
+
 
 class Enemy:
     def __init__(self, name, hp, weapon, weapon_dmg):
@@ -157,8 +183,29 @@ class Spider(Enemy):
         super().__init__(name="Enormous Spider", hp=5,
                          weapon="Poison Fang", weapon_dmg=2)
 
-    def pison_fang(self):
-        print(f"The {self.name} sank its fangs into you!")
+    def poison_fang(self):
+        while spider.hp > 0:
+
+            num = random.randint(0, 2)
+
+            if num == 0:
+                print(
+                    f"\n~ The {spider.name} leaps onto {dante.name} and uses {spider.weapon}.")
+                sleep_print()
+                remaining_player_hp = dante.hp - rat.weapon_dmg
+                dante.hp = remaining_player_hp
+
+                if dante.hp <= 0:
+                    print(
+                        f"\n!! {dante.name} succumbs to the {spider.weapon} of the {spider.name} and collaspes onto the floor dead.")
+                    break
+                else:
+                    dante.sword_attack_rat()
+            else:
+                print(
+                    f"\n~ The {spider.name} jumps to bite with {spider.weapon} but {dante.name} dodges the attack.")
+                sleep_print()
+                dante.sword_attack_rat()
 
 
 class Guard(Enemy):
