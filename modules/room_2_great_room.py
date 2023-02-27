@@ -3,6 +3,7 @@ from modules.sleep_print import sleep_print
 from modules.clear_screen import clear_screen
 from modules.loot import generate_basic_loot
 from modules.character_class import Dante, Bat, Rat, Spider, Guard, Guard_Captain, Mansion_Owner
+from modules.room_3_dining_room import dining_room
 
 dante = Dante()
 bat = Bat()
@@ -75,7 +76,7 @@ def great_room():
 
     try:
         great_room_choice = int(input(
-            "1) Walk through the Main Hallway\n2) Go outside on the Porch\n3) Enter the Main Bedroom\n\nYour Choice: "))
+            "1) Go outside on the Backyard Porch\n2) Enter the Main Bedroom\n\nYour Choice: "))
         if great_room_choice == 0:
             print("\nQuitting the game as requested.")
             exit()
@@ -83,7 +84,7 @@ def great_room():
             backyard_porch_function()
             print(
                 "\n~ Dante reenters the house through the Great Room.\n")
-            # place the Dining Room function here
+            dining_room()
         elif great_room_choice == 2:
             main_bedroom_function()
             print(
