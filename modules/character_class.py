@@ -180,7 +180,7 @@ class Rat(Enemy):
 
 class Spider(Enemy):
     def __init__(self):
-        super().__init__(name="Enormous Spider", hp=5,
+        super().__init__(name="Enormous Spider", hp=10,
                          weapon="Poison Fang", weapon_dmg=2)
 
     def poison_fang(self):
@@ -192,7 +192,7 @@ class Spider(Enemy):
                 print(
                     f"\n~ The {spider.name} leaps onto {dante.name} and uses {spider.weapon}.")
                 sleep_print()
-                remaining_player_hp = dante.hp - rat.weapon_dmg
+                remaining_player_hp = dante.hp - spider.weapon_dmg
                 dante.hp = remaining_player_hp
 
                 if dante.hp <= 0:
@@ -200,12 +200,12 @@ class Spider(Enemy):
                         f"\n!! {dante.name} succumbs to the {spider.weapon} of the {spider.name} and collaspes onto the floor dead.")
                     break
                 else:
-                    dante.sword_attack_rat()
+                    dante.sword_attack_spider()
             else:
                 print(
                     f"\n~ The {spider.name} jumps to bite with {spider.weapon} but {dante.name} dodges the attack.")
                 sleep_print()
-                dante.sword_attack_rat()
+                dante.sword_attack_spider()
 
 
 class Guard(Enemy):

@@ -10,7 +10,7 @@ from modules.clear_screen import clear_screen
 from modules.start_game import start_game
 
 
-def main() -> None:
+def main():
     """
     The menu for the game.
     :return: A new game or quits the game depending on the player's choice.
