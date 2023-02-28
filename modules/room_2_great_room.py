@@ -28,7 +28,7 @@ def great_room():
                 print(line)
                 sleep_print()
 
-        print("~ " + spider.name + "...and it's ready to attack!\n")
+        print("~ An " + spider.name + ". And it's ready to attack!\n")
         sleep_print()
         print("~ Dante's unsheathes his sword and prepares to fight!")
         clear_screen()
@@ -46,7 +46,7 @@ def great_room():
                 print(line)
                 sleep_print()
 
-        print("~ " + rat.name + "...and it's ready to attack!\n")
+        print("~ A " + rat.name + ". And it's ready to attack!\n")
         sleep_print()
         print("~ Dante's unsheathes his sword and prepares to fight!")
         clear_screen()
@@ -90,6 +90,7 @@ def great_room():
             print(
                 "\n~ Dante exits the Main Bedroom through the door leading onto the Backyard Porch.\n")
             backyard_porch_function()
+            dining_room()
         else:
             print(
                 "\n!! Invalid choice. Please enter either \"1\" or \"2\" or \"3\" as your choice. !!")

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from modules.sleep_print import sleep_print
 from modules.clear_screen import clear_screen
+from modules.room_4_kitchen import kitchen
 
 
 def dining_room():
@@ -14,4 +15,4 @@ def dining_room():
                 print(line)
                 sleep_print()
 
-    # TODO: Add the kitchen function here.
+    kitchen()

@@ -28,7 +28,7 @@ def starting_room():
                 print(line)
                 sleep_print()
 
-        print("~ " + bat.name + "...and it's ready to attack!\n")
+        print("~ A " + bat.name + ". And it's ready to attack!\n")
         sleep_print()
         print("~ Dante's unsheathes his sword and prepares to fight!")
         clear_screen()
