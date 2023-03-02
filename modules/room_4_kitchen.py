@@ -17,8 +17,47 @@ mansion_owner = Mansion_Owner()
 def kitchen():
     """
     This is the fourth room in the game.
-    return: If the player goes into the `Mud & Laundry Room` or the `Bedrooms & Bathroom` after entering the `Main Hallway`.
+    return: The fight between `Dante` and the `Cursed Guard`.
     """
+
+    def into_main_hallway():
+        """
+        This function is to replay the `main_hallway_choice` if the player inputs an invalid choice.
+        return: If the player goes into the `Mud & Laundry Room` or the `Bedrooms & Bathroom` after entering the `Main Hallway`.
+        """
+        print("~ Dante breathes hard after the fight with the Cursed Guard. He looks around the Kitchen.")
+        print("\n\"I need to hurry up and search this house and leave.\"")
+        print("\n~ The Treasure Hunter rushes out of the kitchen.")
+        print("\nCurrent Location: Main Hallway.\n\nTo your left leads to the Mud & Laundry Room and to your right is Bedrooms & Bathroom. What do you do?\n")
+
+        try:
+            main_hallway_choice = int(input(
+                "1) Walk to the Mud & Laundry Room\n2) Walk toward the Bedrooms & Bathroom\n\nYour Choice: "))
+            if main_hallway_choice == 0:
+                print("\nQuitting the game as requested.")
+                exit()
+            elif main_hallway_choice == 1:
+                print(
+                    "\n~ Dante takes a left and enters the Mud & Laundry Room.\n")
+                mud_laundry_room()
+            elif main_hallway_choice == 2:
+                print(
+                    "\n~ Dante takes a right and stops before the Bedrooms & Bathroom.\n")
+                bedrooms_bathroom()
+            else:
+                print(
+                    "\n!! Invalid choice. Please enter either \"1\" or \"2\" or \"3\" as your choice. !!")
+                sleep_print()
+                clear_screen()
+                into_main_hallway()
+        except ValueError:
+            print(
+                "\n!! Invalid choice. Please enter either \"1\" or \"2\" or \"3\" as your choice. !!")
+            sleep_print()
+            clear_screen()
+            into_main_hallway()
+        except (KeyboardInterrupt, EOFError):
+            print("\n!! You can always quit the game by typing \"0\" !!")
 
     with open("python/dante_the_treasure_hunter/script/kitchen_intro.txt", "r") as kitchen_intro:
         for line in kitchen_intro.readlines():
@@ -33,32 +72,4 @@ def kitchen():
     sleep_print()
     dante.sword_attack_guard()
     sleep_print()
-    print("\nCurrent Location: Main Hallway.\n\nTo your left leads to the Mud & Laundry Room and to your right is Bedrooms & Bathroom. What do you do?\n")
-
-    try:
-        main_hallway_choice = int(input(
-            "1) Walk to the Mud & Laundry Room\n2) Walk toward the Bedrooms & Bathroom\n\nYour Choice: "))
-        if main_hallway_choice == 0:
-            print("\nQuitting the game as requested.")
-            exit()
-        elif main_hallway_choice == 1:
-            print(
-                "\n~ Dante takes a left and enters the Mud & Laundry Room.\n")
-            mud_laundry_room()
-        elif main_hallway_choice == 2:
-            print(
-                "\n~ Dante takes a right and stops before the Bedrooms & Bathroom.\n")
-            bedrooms_bathroom()
-        else:
-            print(
-                "\n!! Invalid choice. Please enter either \"1\" or \"2\" or \"3\" as your choice. !!")
-            sleep_print()
-            clear_screen()
-            kitchen()
-    except ValueError:
-        print("\n!! Invalid choice. Please enter either \"1\" or \"2\" or \"3\" as your choice. !!")
-        sleep_print()
-        clear_screen()
-        kitchen()
-    except (KeyboardInterrupt, EOFError):
-        print("\n!! You can always quit the game by typing \"0\" !!")
+    into_main_hallway()
