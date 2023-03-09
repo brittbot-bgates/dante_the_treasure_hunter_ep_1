@@ -3,7 +3,7 @@ from modules.sleep_print import sleep_print
 from modules.clear_screen import clear_screen
 from modules.character_class import Dante, Bat, Rat, Spider, Guard, Guard_Captain, Mansion_Owner
 from modules.room_5_mud_laundry_room import mud_laundry_room
-from modules.room_6_bedrooms_bathroom import bedrooms_bathroom
+from modules.room_7_bedrooms_bathroom import bedrooms_bathroom
 
 dante = Dante()
 bat = Bat()
