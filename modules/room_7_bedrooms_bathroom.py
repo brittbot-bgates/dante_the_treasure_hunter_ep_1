@@ -4,7 +4,6 @@ from modules.clear_screen import clear_screen
 from modules.character_class import Dante, Bat, Rat, Spider, Guard, Guard_Captain, Mansion_Owner
 
 
-
 dante = Dante()
 bat = Bat()
 rat = Rat()
