@@ -125,6 +125,32 @@ class Dante:
                 sleep_print()
                 guard.a_good_pummeling()
 
+    def sword_attack_guard_captain(self):
+        while guard.hp > 0:
+
+            num = random.randint(0, 2)
+
+            if num == 0:
+                print(
+                    f"\n~ {self.name} slices the {guard_captain.name} with his {self.weapon}!")
+                sleep_print()
+                remaining_guard_captain_hp = guard_captain.hp - dante.weapon_dmg
+                guard_captain.hp = remaining_guard_captain_hp
+
+                if guard_captain.hp <= 0:
+                    print(
+                        f"\n!! {guard_captain.name} screams out in pain before dematerializing. !!")
+                    print("\n~ Dante's vitals after the fight:\n")
+                    Dante.player_hud(dante)
+                    break
+                else:
+                    guard_captain.a_baton_strike()
+            else:
+                print(
+                    f"\n~ {self.name} swings his {self.weapon} toward the {guard.name} but the {guard.name} dodges the attack.")
+                sleep_print()
+                guard_captain.a_baton_strike()
+
 
 class Enemy:
     def __init__(self, name, hp, weapon, weapon_dmg):
@@ -269,8 +295,29 @@ class Guard_Captain(Enemy):
         super().__init__(name="Cursed Guard Captain", hp=30,
                          weapon="A Baton Strike", weapon_dmg=5)
 
-    def a_knife_strike(self):
-        print(f"The {self.name} hits you with a baton!")
+    def a_baton_strike(self):
+        while guard_captain.hp > 0:
+
+            num = random.randint(0, 2)
+
+            if num == 0:
+                print(
+                    f"\n~ The {guard_captain.name} rushes toward {dante.name} and gives him {guard_captain.weapon}.")
+                sleep_print()
+                remaining_player_hp = dante.hp - guard_captain.weapon_dmg
+                dante.hp = remaining_player_hp
+
+                if dante.hp <= 0:
+                    print(
+                        f"\n!! {dante.name} succumbs to the {guard_captain.weapon} of the {guard_captain.name} and collaspes onto the floor dead.")
+                    break
+                else:
+                    dante.sword_attack_guard_captain()
+            else:
+                print(
+                    f"\n~ The {guard_captain.name} tries to give {guard_captain.weapon} but {dante.name} dodges the attack.")
+                sleep_print()
+                dante.sword_attack_guard_captain()
 
 
 class Mansion_Owner(Enemy):
